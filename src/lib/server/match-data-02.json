@@ -1,0 +1,338 @@
+{
+    "filters": {
+        "dateFrom": "2025-01-20",
+        "dateTo": "2025-02-15",
+        "limit": 10,
+        "permission": "TIER_ONE"
+    },
+    "matches": [
+        {
+            "area": {
+                "code": "EUR",
+                "flag": "https://crests.football-data.org/EUR.svg",
+                "id": 2077,
+                "name": "Europe"
+            },
+            "awayTeam": {
+                "crest": "https://crests.football-data.org/755.png",
+                "id": 755,
+                "name": "GNK Dinamo Zagreb",
+                "shortName": "Dinamo Zagreb",
+                "tla": "DIN"
+            },
+            "competition": {
+                "code": "CL",
+                "emblem": "https://crests.football-data.org/CL.png",
+                "id": 2001,
+                "name": "UEFA Champions League",
+                "type": "CUP"
+            },
+            "group": null,
+            "homeTeam": {
+                "crest": "https://crests.football-data.org/57.png",
+                "id": 57,
+                "name": "Arsenal FC",
+                "shortName": "Arsenal",
+                "tla": "ARS"
+            },
+            "id": 523994,
+            "lastUpdated": "2025-02-01T15:20:27Z",
+            "matchday": 7,
+            "odds": {
+                "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+            },
+            "referees": [
+                {
+                    "id": 15408,
+                    "name": "Daniel Siebert",
+                    "nationality": "Germany",
+                    "type": "REFEREE"
+                }
+            ],
+            "score": {
+                "duration": "REGULAR",
+                "fullTime": {
+                    "away": 0,
+                    "home": 3
+                },
+                "halfTime": {
+                    "away": 0,
+                    "home": 1
+                },
+                "winner": "HOME_TEAM"
+            },
+            "season": {
+                "currentMatchday": 8,
+                "endDate": "2025-05-31",
+                "id": 2350,
+                "startDate": "2024-09-17",
+                "winner": null
+            },
+            "stage": "LEAGUE_STAGE",
+            "status": "FINISHED",
+            "utcDate": "2025-01-22T20:00:00Z"
+        },
+        {
+            "area": {
+                "code": "ENG",
+                "flag": "https://crests.football-data.org/770.svg",
+                "id": 2072,
+                "name": "England"
+            },
+            "awayTeam": {
+                "crest": "https://crests.football-data.org/57.png",
+                "id": 57,
+                "name": "Arsenal FC",
+                "shortName": "Arsenal",
+                "tla": "ARS"
+            },
+            "competition": {
+                "code": "PL",
+                "emblem": "https://crests.football-data.org/PL.png",
+                "id": 2021,
+                "name": "Premier League",
+                "type": "LEAGUE"
+            },
+            "group": null,
+            "homeTeam": {
+                "crest": "https://crests.football-data.org/76.png",
+                "id": 76,
+                "name": "Wolverhampton Wanderers FC",
+                "shortName": "Wolverhampton",
+                "tla": "WOL"
+            },
+            "id": 497632,
+            "lastUpdated": "2025-02-01T10:20:45Z",
+            "matchday": 23,
+            "odds": {
+                "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+            },
+            "referees": [
+                {
+                    "id": 11605,
+                    "name": "Michael Oliver",
+                    "nationality": "England",
+                    "type": "REFEREE"
+                }
+            ],
+            "score": {
+                "duration": "REGULAR",
+                "fullTime": {
+                    "away": 1,
+                    "home": 0
+                },
+                "halfTime": {
+                    "away": 0,
+                    "home": 0
+                },
+                "winner": "AWAY_TEAM"
+            },
+            "season": {
+                "currentMatchday": 24,
+                "endDate": "2025-05-25",
+                "id": 2287,
+                "startDate": "2024-08-16",
+                "winner": null
+            },
+            "stage": "REGULAR_SEASON",
+            "status": "FINISHED",
+            "utcDate": "2025-01-25T15:00:00Z"
+        },
+        {
+            "area": {
+                "code": "EUR",
+                "flag": "https://crests.football-data.org/EUR.svg",
+                "id": 2077,
+                "name": "Europe"
+            },
+            "awayTeam": {
+                "crest": "https://crests.football-data.org/57.png",
+                "id": 57,
+                "name": "Arsenal FC",
+                "shortName": "Arsenal",
+                "tla": "ARS"
+            },
+            "competition": {
+                "code": "CL",
+                "emblem": "https://crests.football-data.org/CL.png",
+                "id": 2001,
+                "name": "UEFA Champions League",
+                "type": "CUP"
+            },
+            "group": null,
+            "homeTeam": {
+                "crest": "https://crests.football-data.org/298.png",
+                "id": 298,
+                "name": "Girona FC",
+                "shortName": "Girona",
+                "tla": "GIR"
+            },
+            "id": 524053,
+            "lastUpdated": "2025-02-01T15:20:27Z",
+            "matchday": 8,
+            "odds": {
+                "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+            },
+            "referees": [
+                {
+                    "id": 11043,
+                    "name": "Maurizio Mariani",
+                    "nationality": "Italy",
+                    "type": "REFEREE"
+                }
+            ],
+            "score": {
+                "duration": "REGULAR",
+                "fullTime": {
+                    "away": 2,
+                    "home": 1
+                },
+                "halfTime": {
+                    "away": 2,
+                    "home": 1
+                },
+                "winner": "AWAY_TEAM"
+            },
+            "season": {
+                "currentMatchday": 8,
+                "endDate": "2025-05-31",
+                "id": 2350,
+                "startDate": "2024-09-17",
+                "winner": null
+            },
+            "stage": "LEAGUE_STAGE",
+            "status": "FINISHED",
+            "utcDate": "2025-01-29T20:00:00Z"
+        },
+        {
+            "area": {
+                "code": "ENG",
+                "flag": "https://crests.football-data.org/770.svg",
+                "id": 2072,
+                "name": "England"
+            },
+            "awayTeam": {
+                "crest": "https://crests.football-data.org/65.png",
+                "id": 65,
+                "name": "Manchester City FC",
+                "shortName": "Man City",
+                "tla": "MCI"
+            },
+            "competition": {
+                "code": "PL",
+                "emblem": "https://crests.football-data.org/PL.png",
+                "id": 2021,
+                "name": "Premier League",
+                "type": "LEAGUE"
+            },
+            "group": null,
+            "homeTeam": {
+                "crest": "https://crests.football-data.org/57.png",
+                "id": 57,
+                "name": "Arsenal FC",
+                "shortName": "Arsenal",
+                "tla": "ARS"
+            },
+            "id": 497646,
+            "lastUpdated": "2025-02-01T10:20:45Z",
+            "matchday": 24,
+            "odds": {
+                "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+            },
+            "referees": [
+            ],
+            "score": {
+                "duration": "REGULAR",
+                "fullTime": {
+                    "away": null,
+                    "home": null
+                },
+                "halfTime": {
+                    "away": null,
+                    "home": null
+                },
+                "winner": null
+            },
+            "season": {
+                "currentMatchday": 24,
+                "endDate": "2025-05-25",
+                "id": 2287,
+                "startDate": "2024-08-16",
+                "winner": null
+            },
+            "stage": "REGULAR_SEASON",
+            "status": "TIMED",
+            "utcDate": "2025-02-02T16:30:00Z"
+        },
+        {
+            "area": {
+                "code": "ENG",
+                "flag": "https://crests.football-data.org/770.svg",
+                "id": 2072,
+                "name": "England"
+            },
+            "awayTeam": {
+                "crest": "https://crests.football-data.org/57.png",
+                "id": 57,
+                "name": "Arsenal FC",
+                "shortName": "Arsenal",
+                "tla": "ARS"
+            },
+            "competition": {
+                "code": "PL",
+                "emblem": "https://crests.football-data.org/PL.png",
+                "id": 2021,
+                "name": "Premier League",
+                "type": "LEAGUE"
+            },
+            "group": null,
+            "homeTeam": {
+                "crest": "https://crests.football-data.org/338.png",
+                "id": 338,
+                "name": "Leicester City FC",
+                "shortName": "Leicester City",
+                "tla": "LEI"
+            },
+            "id": 497651,
+            "lastUpdated": "2025-02-01T10:20:45Z",
+            "matchday": 25,
+            "odds": {
+                "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+            },
+            "referees": [
+            ],
+            "score": {
+                "duration": "REGULAR",
+                "fullTime": {
+                    "away": null,
+                    "home": null
+                },
+                "halfTime": {
+                    "away": null,
+                    "home": null
+                },
+                "winner": null
+            },
+            "season": {
+                "currentMatchday": 24,
+                "endDate": "2025-05-25",
+                "id": 2287,
+                "startDate": "2024-08-16",
+                "winner": null
+            },
+            "stage": "REGULAR_SEASON",
+            "status": "TIMED",
+            "utcDate": "2025-02-15T12:30:00Z"
+        }
+    ],
+    "resultSet": {
+        "competitions": "CL,PL",
+        "count": 5,
+        "draws": 2,
+        "first": "2025-01-22",
+        "last": "2025-02-15",
+        "losses": 0,
+        "played": 3,
+        "wins": 1
+    }
+}
