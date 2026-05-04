@@ -44,7 +44,9 @@
 <div class="container">
     <main>
         <div class="has-text-centered">
+        <!--
             <h1 class="is-size-1">Match Data</h1>
+        -->
             <div class="columns is-centered">
                 <div class="column is-2">
                     <Switch checked={showScores} label="Show Scores" onChange={() => toggleShowScores()} />
