@@ -47,17 +47,29 @@
     <div class="message-body scorecard" class:has-background-dark={matchData.status === "FINISHED"}>
         <div class="content">
             <div class="has-text-centered">
-                <p class="is-size-5">
-                    {new Date(matchData.utcDate).toLocaleString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: true
-                    })}
-                </p>
-                <MatchStatusBadge status={matchData.status} />
+                <div class="columns is-v-centered mx-0">
+                    <div class="column is-one-third">
+                        <p class="tag is-primary p-4">
+                            {new Date(matchData.utcDate).toLocaleString('en-GB', {
+                                day: '2-digit',
+                                month: 'short',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: true
+                            })}
+                        </p>
+                    </div>
+                    <div class="column is-one-third">
+                        <MatchStatusBadge status={matchData.status} />
+                    </div>
+                    <div class="column is-one-third is-hidden-mobile">
+                        <p class="tag is-info p-4">
+                            <img src="{matchData.competition.emblem}" alt="Competition Emblem" height="24" width="24" style="vertical-align: middle;" class="m-2" />
+                            {matchData.competition.name}
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="columns is-vcentered is-4 py-4 is-mobile">
                 <!-- Home Team -->

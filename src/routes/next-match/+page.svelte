@@ -38,22 +38,20 @@
 </script>
 
 <svelte:head>
-    <title>Match Data</title>
+    <title>Next Arsenal Match</title>
 </svelte:head>
 
 <div class="container">
     <main>
-        <div class="has-text-centered">
-        <!--
-            <h1 class="is-size-1">Match Data</h1>
-        -->
-            <div class="columns is-centered">
-                <div class="column is-2">
-                    <Switch checked={showScores} label="Show Scores" onChange={() => toggleShowScores()} />
-                </div>
-                <div class="column is-2">
-                    <Switch checked={devMode} label="Dev Mode" onChange={() => { toggleDevMode() }} />
-                </div>
+        <div class="columns is-centered is-vcentered mb-0">
+            <div class="column is-4">
+                <h2 class="is-size-4">Next Arsenal Match</h2>
+            </div>
+            <div class="column is-2">
+                <Switch checked={showScores} label="Show Scores" onChange={() => toggleShowScores()} />
+            </div>
+            <div class="column is-2 is-hidden">
+                <Switch checked={devMode} label="Dev Mode" onChange={() => { toggleDevMode() }} />
             </div>
         </div>
         <div class="columns is-centered">
