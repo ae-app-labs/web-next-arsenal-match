@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Switch from './../../lib/components/Switch.svelte';
-	import MatchDetail from '$lib/components/match-detail.svelte';
+	import MatchDetail from '$lib/components/MatchDetail.svelte';
     import { onMount } from 'svelte';
 
     let matches = $state([]);

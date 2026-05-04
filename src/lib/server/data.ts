@@ -2,6 +2,7 @@ import { env } from '$env/dynamic/private'
 import fs from 'fs';
 import path from 'path';
 
+const DEBUG_ENABLED = env.DEBUG_ENABLED === 'True';
 const API_TOKEN = env.API_TOKEN;
 const MATCHES_URL = env.API_URL_ARSENAL_MATCHES;
 const MATCH_LIMIT = 10;
@@ -46,7 +47,10 @@ export async function getRecentMatchesData(daysAgo: number = 7, daysAhead: numbe
     const dateTo = formatDate(oneWeekAhead);
 
     const url = `${MATCHES_URL}?dateFrom=${dateFrom}&dateTo=${dateTo}`;
-    console.log(`Fetching data from ${url}`);
+
+    if(DEBUG_ENABLED){
+        console.log(`Fetching data from ${url}`);
+    }
 
     const cachedData = cache.get(url);
     if (cachedData) {

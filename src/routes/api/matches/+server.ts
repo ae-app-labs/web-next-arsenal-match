@@ -31,7 +31,10 @@ export async function GET( {url, request}) {
     }
     
     const matchesData = devMode ? await getMockData() : await getRecentMatchesData(daysAgo, daysAhead);
-    console.log(matchesData);
+    // Do case insensitive check for DEBUG_ENABLED also consider the variable may not be set at all, in which case it should default to false
+    if(env.DEBUG_ENABLED?.toLowerCase() === 'true') {
+        console.log(matchesData);
+    }
 
     // Add the result to cache
     setToCache(cacheKey, matchesData);
