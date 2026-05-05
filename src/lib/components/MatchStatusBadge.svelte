@@ -21,7 +21,7 @@
 <p class="status-badge px-4">
     {#if status === "TIMED"}
       🟢 UPCOMING
-    {:else if status === "IN_PLAY"}
+    {:else if status === "IN_PLAY" || status === "PAUSED"}
       🔴 IN PROGRESS
     {:else}
       ⚪ {status}                  

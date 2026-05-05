@@ -83,7 +83,7 @@
                         </div>
                         <div class="column is-2">
                             <p class="subtitle is-1 match-score">
-                                {#if showScores && matchData.status === "FINISHED"}
+                                {#if showScores && (matchData.status === "FINISHED" || matchData.status === "IN_PLAY" || matchData.status === "PAUSED")}
                                     {matchData.score.fullTime.home}
                                 {:else if matchData.status === "TIMED"}
                                     &nbsp;
@@ -102,7 +102,7 @@
                     <div class="columns is-vcentered is-mobile is-reversed-mobile">
                         <div class="column is-2 has-text-left">
                             <p class="subtitle is-1 match-score">
-                                {#if showScores && matchData.status === "FINISHED"}
+                                {#if showScores && (matchData.status === "FINISHED" || matchData.status === "IN_PLAY" || matchData.status === "PAUSED")}
                                     {matchData.score.fullTime.away}
                                 {:else if matchData.status === "TIMED"}
                                     &nbsp;
