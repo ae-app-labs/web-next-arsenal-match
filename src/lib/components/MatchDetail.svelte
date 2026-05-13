@@ -11,10 +11,6 @@
         border: 4px solid;
         border-image: linear-gradient(90deg, #ff3c6f, #25c1cf, #8bc34a, #ffd600) 1;
         border-radius: 1em;
-        box-shadow: 0 0 16px #25c1cf88, 0 0 4px #ff3c6f55;
-        /* fallback for browsers that don't support border-image */
-        border-image: linear-gradient(90deg, #ff9800, #25c1cf, #8bc34a) 1;
-        border-radius: 1em;
         box-shadow: 0 0 10px #25c1cf44;
     }
     .message {
@@ -32,7 +28,10 @@
         text-align: center;
         margin: auto;
         backdrop-filter: blur(20px); /* glassmorphism feel */
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.3s ease; /* Smooth transition for the grow animation */
+        border: 1px solid transparent;
+        overflow: hidden;
+        position: relative;
     }
     .match-score {
         font-size: 3rem;
@@ -40,7 +39,21 @@
         color: #ffffff;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
-
+    article{
+        transition: transform 0.3s ease; /* Smooth transition for the grow animation */
+    }
+    .scorecard:hover, article:hover {
+        transform: scale(1.05); 
+        background: linear-gradient(135deg, rgba(235, 13, 72, 0.815), rgba(207, 221, 7, 0.973));
+    }
+    .score-left{
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 10px 0 0 10px;
+    }
+    .score-right{
+        background-color: rgba(9, 9, 9, 0.6);
+        border-radius: 0 10px 10px 0;
+    }
 </style>
 
 <article class="message" transition:fade>
@@ -49,7 +62,7 @@
             <div class="has-text-centered">
                 <div class="columns is-v-centered mx-0">
                     <div class="column is-one-third">
-                        <p class="tag is-primary p-4">
+                        <p class="tag is-primary p-2">
                             {new Date(matchData.utcDate).toLocaleString('en-GB', {
                                 day: '2-digit',
                                 month: 'short',
@@ -64,8 +77,9 @@
                         <MatchStatusBadge status={matchData.status} />
                     </div>
                     <div class="column is-one-third is-hidden-mobile">
-                        <p class="tag is-info p-4">
-                            <img src="{matchData.competition.emblem}" alt="Competition Emblem" height="24" width="24" style="vertical-align: middle;" class="m-2" />
+                        <p class="tag is-info p-2">
+                            <img src="{matchData.area.flag}" alt="Country Flag" height="24" width="24" style="vertical-align: middle;" class="mr-2" />
+                            <img src="{matchData.competition.emblem}" alt="Competition Emblem" height="24" width="24" style="vertical-align: middle;" />
                             {matchData.competition.name}
                         </p>
                     </div>
@@ -73,8 +87,8 @@
             </div>
             <div class="columns is-vcentered is-4 py-4 is-mobile">
                 <!-- Home Team -->
-                <div class="column is-half has-text-right">
-                    <div class="columns is-vcentered is-mobile">
+                <div class="column is-half has-text-right score-left">
+                    <div class="columns is-vcentered is-mobile" style="">
                         <div class="column">
                             <p class="subtitle is-4">{matchData.homeTeam.shortName}</p>
                         </div>
@@ -98,7 +112,7 @@
                     <p class="subtitle is-3">*</p>
                 </div>
                 <!-- Away Team -->
-                <div class="column is-half has-text-left">
+                <div class="column is-half has-text-left score-right">
                     <div class="columns is-vcentered is-mobile is-reversed-mobile">
                         <div class="column is-2 has-text-left">
                             <p class="subtitle is-1 match-score">
