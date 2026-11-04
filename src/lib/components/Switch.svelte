@@ -1,67 +1,73 @@
 <script lang="ts">
-    export let checked: boolean;
-    export let label: string;
-    export let onChange: (checked: boolean) => void;
-
-    const handleToggle = () => {
-        onChange(!checked);
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            handleToggle();
-        }
-    };
+    let { checked, label, onChange }: {
+        checked: boolean;
+        label: string;
+        onChange: (checked: boolean) => void;
+    } = $props();
 </script>
 
-<div class="switch-conatiner">
-    <span>{label}</span>
-    <div class="switch" on:click={handleToggle} on:keydown={handleKeyDown} role="switch" aria-checked={checked} tabindex="0">
-        <div class="track">
-            <div class="thumb" class:checked={checked}></div>
-        </div>
-    </div>
-</div>
+<button type="button" class="switch" role="switch" aria-checked={checked} onclick={() => onChange(!checked)}>
+    <span class="switch-label">{label}</span>
+    <span class="track" aria-hidden="true">
+        <span class="thumb"></span>
+    </span>
+</button>
 
 <style>
     .switch {
-        display: inline-flex;
+                display: inline-flex;
         align-items: center;
+        gap: 0.6rem;
+        padding: 0.25rem;
+        border: 0;
+        border-radius: 999px;
+        background: none;
+        color: inherit;
+        font: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
         cursor: pointer;
-        width: 50px;
-        height: 25px;
-        position: relative;
     }
+    .switch-label {
+        display: block;
+        /* Trim the text box to cap-height/baseline so the glyphs centre optically */
+        text-box: trim-both cap alphabetic;
+        opacity: 0.85;
+        transition: opacity 0.2s ease;
+    }
+    .switch:hover .switch-label { opacity: 1; }
+    .switch:focus-visible {
+        outline: 2px solid var(--am-cyan);
+        outline-offset: 2px;
+    }
+
     .track {
-        background-color: #ccc;
-        border-radius: 12.5px;
-        width: 100%;
-        height: 100%;
+        display: block;
+        flex-shrink: 0;
         position: relative;
-        transition: background-color 0.3s;
+        width: 2.5rem;
+        height: 1.4rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        transition: background 0.25s ease;
     }
     .thumb {
-        background-color: white;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
         position: absolute;
-        top: 50%;
-        left: 2.5px;
-        transform: translateY(-50%);
-        transition: transform 0.3s;
+        top: 0.15rem;
+        left: 0.15rem;
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+        transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.6, 1);
     }
-    .thumb.checked {
-        transform: translate(25px, -50%);
-    }
-    .switch[aria-checked="true"] .track {
-        background-color: #25c1cf;
-    }
-    .switch-conatiner {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 1em;
+    .switch[aria-checked="true"] .track { background: var(--am-cyan); }
+    .switch[aria-checked="true"] .thumb { transform: translateX(1.1rem); }
+
+    @media (prefers-reduced-motion: reduce) {
+        .track, .thumb { transition: none; }
     }
 </style>
