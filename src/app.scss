@@ -1,1 +1,55 @@
-@use "bulma"
+@use "bulma";
+
+// ---------------------------------------------------------------------------
+// Design tokens
+// Shared colours and sizes for the app's own components. Prefixed with `am-`
+// (Arsenal Match) so they never collide with Bulma's variables or classes.
+// ---------------------------------------------------------------------------
+:root {
+    // Brand
+    --am-red: #ef0107;   // Arsenal red
+    --am-cyan: #25c1cf;  // secondary accent
+    --am-gradient-rainbow: linear-gradient(120deg, #ff3c6f, #25c1cf, #8bc34a, #ffd600);
+
+    // Surfaces
+    --am-bg-card: radial-gradient(120% 140% at 0% 0%, #13294b 0%, #0b1a30 55%, #08121f 100%);
+    --am-bg-glass: rgba(11, 26, 48, 0.82);
+    --am-line: rgba(255, 255, 255, 0.08);
+
+    // Text (on dark surfaces)
+    --am-text-strong: #ffffff;
+    --am-text: #f3f6fb;
+    --am-text-soft: #b4c2d6;
+    --am-text-muted: #93a3bb;
+
+    // Shape and depth
+    --am-radius: 1.25rem;
+    --am-radius-lg: 1.5rem;
+    --am-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+}
+
+// ---------------------------------------------------------------------------
+// Shared building blocks
+// Components layer their own layout on top via scoped styles.
+// ---------------------------------------------------------------------------
+
+// Dark card surface used by the match cards, page header and landing card
+.am-surface {
+    border: 1px solid var(--am-line);
+    border-radius: var(--am-radius);
+    background: var(--am-bg-card);
+    color: var(--am-text);
+    box-shadow: var(--am-shadow);
+}
+
+// Gradient border that respects border-radius (border-image does not).
+// Two stacked backgrounds: the card colour clipped to the padding box on top,
+// the gradient filling the border box underneath; the transparent border
+// leaves a strip where only the gradient shows.
+// Must come after .am-surface so it wins when both are applied.
+.am-gradient-border {
+    border: 2px solid transparent;
+    background:
+        var(--am-bg-card) padding-box,
+        var(--am-gradient-rainbow) border-box;
+}
