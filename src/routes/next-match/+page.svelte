@@ -18,6 +18,28 @@
         summary?.first && summary?.last ? `${fmtDay(summary.first)} – ${fmtDay(summary.last)}` : ''
     );
 
+    const LIVE = ['IN_PLAY', 'PAUSED'];
+    const UPCOMING = ['TIMED', 'SCHEDULED'];
+    const time = (m: any) => new Date(m.utcDate).getTime();
+
+    // Pinned match: a live game if there is one, otherwise the soonest upcoming fixture
+    let nextMatch = $derived(
+        matches.find((m) => LIVE.includes(m.status)) ??
+        matches.filter((m) => UPCOMING.includes(m.status)).sort((a, b) => time(a) - time(b))[0]
+    );
+    // Later fixtures, soonest first
+    let upcoming = $derived(
+        matches
+            .filter((m) => m !== nextMatch && (UPCOMING.includes(m.status) || LIVE.includes(m.status)))
+            .sort((a, b) => time(a) - time(b))
+    );
+    // Finished (and postponed/cancelled) games, most recent first
+    let results = $derived(
+        matches
+            .filter((m) => m !== nextMatch && !UPCOMING.includes(m.status) && !LIVE.includes(m.status))
+            .sort((a, b) => time(b) - time(a))
+    );
+
     onMount(() => {
         fetchApiData();
     });
@@ -82,11 +104,36 @@
             {:else if !matches || matches.length === 0}
                 <p class="empty-state">No matches found</p>
             {:else}
-                <div class="match-list">
-                    {#each matches as match, i (match.id)}
-                        <MatchDetail matchData={match} {showScores} featured={i === 0} />
-                    {/each}
-                </div>
+                {#if nextMatch}
+                    <section class="match-section" aria-labelledby="next-heading">
+                        <h2 id="next-heading" class="section-title">
+                            {LIVE.includes(nextMatch.status) ? 'Live now' : 'Up next'}
+                        </h2>
+                        <MatchDetail matchData={nextMatch} {showScores} featured />
+                    </section>
+                {/if}
+
+                {#if upcoming.length}
+                    <section class="match-section" aria-labelledby="upcoming-heading">
+                        <h2 id="upcoming-heading" class="section-title">Upcoming</h2>
+                        <div class="match-list">
+                            {#each upcoming as match (match.id)}
+                                <MatchDetail matchData={match} {showScores} />
+                            {/each}
+                        </div>
+                    </section>
+                {/if}
+
+                {#if results.length}
+                    <section class="match-section" aria-labelledby="results-heading">
+                        <h2 id="results-heading" class="section-title">Recent results</h2>
+                        <div class="match-list">
+                            {#each results as match (match.id)}
+                                <MatchDetail matchData={match} {showScores} />
+                            {/each}
+                        </div>
+                    </section>
+                {/if}
             {/if}
         </div>
     </main>
@@ -109,16 +156,6 @@
         backdrop-filter: blur(14px) saturate(140%);
         -webkit-backdrop-filter: blur(14px) saturate(140%);
         overflow: hidden;
-    }
-    /* Arsenal-red accent line along the bottom edge */
-    .page-header::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        background: linear-gradient(90deg, var(--am-red), color-mix(in srgb, var(--am-red) 40%, transparent) 40%, transparent);
     }
 
     .brand {
@@ -157,6 +194,19 @@
         align-items: center;
         gap: 0.5rem;
         margin-left: auto;
+    }
+
+    .match-section + .match-section {
+        margin-top: clamp(1.5rem, 5vw, 2.25rem);
+    }
+    .section-title {
+        margin: 0 0 0.75rem 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        /* Sits on the page background, so use Bulma's theme-aware text colour */
+        color: var(--bulma-text-weak, #7a7a7a);
     }
 
     .match-list {
