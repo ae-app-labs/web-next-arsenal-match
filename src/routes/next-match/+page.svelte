@@ -110,16 +110,6 @@
         -webkit-backdrop-filter: blur(14px) saturate(140%);
         overflow: hidden;
     }
-    /* Arsenal-red accent line along the bottom edge */
-    .page-header::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        background: linear-gradient(90deg, var(--am-red), color-mix(in srgb, var(--am-red) 40%, transparent) 40%, transparent);
-    }
 
     .brand {
         display: flex;
